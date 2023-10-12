@@ -1,22 +1,21 @@
 import React from 'react';
-import { heroesList } from './heroes.json';
 import { Hero } from './Hero';
+import { heroes } from './heroes_info';
 
 function App() {
-  const heroes = JSON.parse(heroesList);
-  return (
-    <div className="App">
-      {heroes.map((hero) => (
-        <li key={hero.id}>
-          <Hero
-            name={hero.name}
-            universe={hero.universe}
-            alterego={hero.alterego}
-          ></Hero>
-        </li>
-      ))}
-    </div>
-  );
+  const heroesList = heroes.map((hero) => (
+    <Hero
+      key={hero.id}
+      name={hero.name}
+      universe={hero.universe}
+      alterego={hero.alterego}
+      occupation={hero.occupation}
+      friends={hero.friends}
+      superpowers={hero.superpowers}
+      url={hero.url}
+    />
+  ));
+  return <div>{heroesList}</div>;
 }
 
 export { App };
